@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_EMPLOYEES = gql`
-  query {
+  query Employees {
     employees {
       id
       name
@@ -14,13 +14,12 @@ export const GET_EMPLOYEES = gql`
 
 export const GET_EMPLOYEE = gql`
   query Employee($id: ID!) {
-    employee {
+    employee(id: $id) {
       id
       name
       email
       phone
       password
-      createdAt
     }
   }
 `;

@@ -1,11 +1,11 @@
 import { gql } from '@apollo/client';
 
 export const ADD_EMPLOYEE = gql`
-  mutation AddEmployee(
-    $name: string
-    $email: string
-    $phone: string
-    $password: string
+  mutation Mutation(
+    $name: String
+    $email: String
+    $phone: String
+    $password: String
   ) {
     addEmployee(
       name: $name
@@ -13,12 +13,11 @@ export const ADD_EMPLOYEE = gql`
       phone: $phone
       password: $password
     ) {
-      id
-      name
       email
-      phone
+      name
       password
-      createdAt
+      phone
+      id
     }
   }
 `;
@@ -31,32 +30,30 @@ export const DELETE_EMPLOYEE = gql`
       email
       phone
       password
-      createdAt
     }
   }
 `;
 
 export const UPDATE_EMPLOYEE = gql`
-  mutation UpdateEmployee(
+  mutation Mutation(
     $id: ID!
-    $name: string
-    $email: string
-    $phone: string
-    $password: string
+    $name: String
+    $phone: String
+    $email: String
+    $password: String
   ) {
     updateEmployee(
       id: $id
       name: $name
-      email: $email
       phone: $phone
+      email: $email
       password: $password
     ) {
+      email
       id
       name
-      email
-      phone
       password
-      updatedAt
+      phone
     }
   }
 `;

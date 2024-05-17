@@ -1,4 +1,7 @@
+import bcrypt from 'bcrypt';
 import { Context } from '@/pages/api/graphql';
+
+const SALT_ROUNDS = 10;
 
 export const resolvers = {
   Query: {
@@ -13,12 +16,13 @@ export const resolvers = {
   },
   Mutation: {
     addEmployee: async (_parent: any, args: any, context: Context) => {
+      const hashedPassword = await bcrypt.hash(args.password, SALT_ROUNDS);
       return await context.prisma.employee.create({
         data: {
           name: args.name,
           email: args.email,
           phone: args.phone,
-          password: args.password,
+          password: hashedPassword,
         },
       });
     },

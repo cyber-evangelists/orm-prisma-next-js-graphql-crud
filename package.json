@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.10.4",
-    "@apollo/server": "^4.10.4",
+    "@apollo/server": "^4.13.0",
     "@as-integrations/next": "^3.0.0",
     "@prisma/client": "^5.14.0",
     "bcrypt": "^5.1.1",
